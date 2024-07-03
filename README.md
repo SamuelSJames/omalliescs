@@ -85,7 +85,7 @@ To get started with setting up the Omallies Coffee Shop network, follow these st
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Omallies-Coffee-Shop.git
+   git clone https://github.com/SamuelSJames/omalliescs.git
    ```
 2. Navigate to the repository directory:
    ```bash
