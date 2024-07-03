@@ -89,7 +89,7 @@ To get started with setting up the Omallies Coffee Shop network, follow these st
    ```
 2. Navigate to the repository directory:
    ```bash
-   cd Omallies-Coffee-Shop
+   cd omalliescs
    ```
 3. Follow the configuration guides for each device listed in the `configs` directory.
 
