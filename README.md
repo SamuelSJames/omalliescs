@@ -1,9 +1,5 @@
-Creating a professional and engaging `README.md` for your GitHub repository "Omallies Coffee Shop" is essential to guide users and contributors through your project. Below is a suggested `README.md` structure:
-
----
-
 # Omallies Coffee Shop
-
+***UNDER CONSTRUCTIONS***
 Welcome to the Omallies Coffee Shop Network Design and Configuration repository! This repository contains all the necessary network configurations and design files for setting up and maintaining the network infrastructure of Omallies Coffee Shop.
 
 ![network-design](/configs/docs/network-design-diagram.png)
