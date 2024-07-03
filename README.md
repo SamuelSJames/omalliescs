@@ -2,7 +2,7 @@
 ***UNDER CONSTRUCTIONS***
 Welcome to the Omallies Coffee Shop Network Design and Configuration repository! This repository contains all the necessary network configurations and design files for setting up and maintaining the network infrastructure of Omallies Coffee Shop. This was a totally emulated projected in GNS3! 
 
-![network-design](/configs/docs/network-design-diagram.png)
+![network-design](/configs/assets/network-design-diagram.png)
 
 ## Table of Contents
 
@@ -175,4 +175,4 @@ For any questions or suggestions, please contact me at [snsnetworksolutions.net]
 
 <img align="left" alt="XML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xml/xml-original.svg" />
           
-<img align="left" alt="Cisco" width="30px" style="padding-right:10px;" src="/configs/docs/cisco-svgrepo-com.svg" />
+<img align="left" alt="Cisco" width="30px" style="padding-right:10px;" src="/configs/assets/cisco-svgrepo-com.svg" />
