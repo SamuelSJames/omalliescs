@@ -1,6 +1,6 @@
 # Omallies Coffee Shop
-***UNDER CONSTRUCTIONS***
-Welcome to the Omallies Coffee Shop Network Design and Configuration repository! This repository contains all the necessary network configurations and design files for setting up and maintaining the network infrastructure of Omallies Coffee Shop. This was a totally emulated projected in GNS3! 
+***UNDER CONSTRUCTION***
+Welcome to the Omallies Coffee Shop Network Design and Configuration repository! This repository contains all the necessary network configurations and design files for setting up and maintaining the network infrastructure of Omallies Coffee Shop. This was a totally emulated project in GNS3! 
 
 ![network-design](/configs/assets/network-design-diagram.png)
 
@@ -11,10 +11,10 @@ Welcome to the Omallies Coffee Shop Network Design and Configuration repository!
 - [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
 - [Device Configurations](#device-configurations)
-  - [PFsense Firewall](#pfsense-firewall)
+  - [Cisco IOS Router](#cisco-ios-router)
   - [Cisco IOS Switch](#cisco-ios-switch)
   - [Cameras](#cameras)
-  - [Proxmox Server](#proxmox-server)
+  - [Alpine Server](#alpine-server)
   - [Registers](#registers)
   - [Juniper Mist Access Point](#juniper-mist-access-point)
   - [VoIP Phones](#voip-phones)
@@ -31,14 +31,14 @@ This project documents the network design and configuration for Omallies Coffee 
 ## Network Overview
 
 The network includes the following devices and services:
-- **PFsense Firewall:** Provides network security and routing.
+- **Cisco IOS Router:** Provides network routing and configuration.
 - **Cisco IOS Switch:** Manages network traffic and device connectivity.
-- **5 Cameras:** For security surveillance.
-- **Proxmox Server:** Hosts virtual machines, including an Asterisk VM for VoIP services.
+- **3 Cameras:** For security surveillance.
+- **Alpine Server:** Runs Docker applications, including an Asterisk VM for VoIP services.
 - **2 Registers:** For processing transactions.
 - **Juniper Mist Access Point:** Provides wireless connectivity.
 - **2 VoIP Phones:** For voice communication.
-- **Asterisk VM:** Manages VoIP services, hosted on the Proxmox server.
+- **Asterisk VM:** Manages VoIP services, running on the Alpine server.
 - **Uptime Kuma:** Monitors network and device uptime, running in an AWS EC2 instance.
 
 ## Repository Structure
@@ -48,19 +48,14 @@ The repository is structured as follows:
 ```bash
 Omalliescs/
 ├── configs/
-│   ├── pfsense/
-│   │   └── pfsense-config.xml
 │   ├── cisco/
+│   │   ├── router-config.cfg
 │   │   └── switch-config.cfg
 │   ├── cameras/
-│   │   └── camera-configs/
-│   │       ├── camera1.cfg
-│   │       ├── camera2.cfg
-│   │       ├── camera3.cfg
-│   │       ├── camera4.cfg
-│   │       └── camera5.cfg
-│   ├── proxmox/
-│   │   └── proxmox-config.cfg
+│   │   └── camera-configs
+│   ├── alpine/
+│   │   ├── docker-compose.yml
+│   │   └── alpine-setup.sh
 │   ├── registers/
 │   │   ├── register1.cfg
 │   │   └── register2.cfg
@@ -95,11 +90,14 @@ To get started with setting up the Omallies Coffee Shop network, follow these st
 
 ## Device Configurations
 
-### PFsense Firewall
+### Cisco IOS Router
 
-Configuration file: `configs/pfsense/pfsense-config.xml`
+Configuration file: `configs/cisco/router-config.cfg`
 
-Ensure the PFsense firewall is correctly set up to manage traffic and provide security.
+Key configurations include:
+- **NTP:** Ensures all devices on the network have synchronized time.
+- **OSPF:** Enables dynamic routing within the network.
+- **VLSM:** Efficiently allocates IP addresses to subnets.
 
 ### Cisco IOS Switch
 
@@ -113,11 +111,12 @@ Configuration files: `configs/cameras/camera-configs/`
 
 Set up each camera using the respective configuration file to ensure proper surveillance coverage.
 
-### Proxmox Server
+### Alpine Server
 
-Configuration file: `configs/proxmox/proxmox-config.cfg`
+Configuration files: `configs/alpine/`
 
-Configure the Proxmox server to host virtual machines, including the Asterisk VM.
+- **Docker Compose:** `docker-compose.yml` sets up Docker containers for running applications.
+- **Setup Script:** `alpine-setup.sh` automates the initial setup and configuration of the Alpine server.
 
 ### Registers
 
@@ -141,7 +140,7 @@ Configure the VoIP phones for clear and reliable voice communication.
 
 Configuration file: `configs/asterisk/asterisk-config.cfg`
 
-Set up the Asterisk VM on the Proxmox server to manage VoIP services.
+Set up the Asterisk VM on the Alpine server to manage VoIP services.
 
 ### Uptime Kuma Monitoring
 
@@ -159,20 +158,14 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any questions or suggestions, please contact me at [snsnetworksolutions.net](mailto:samueljamesinc@snsnetworksolutions.net).
 
-
 ### 🧰 **Languages and Tools**
 
 <img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
 <img align="left" alt="Linux" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" />
-
-<img align="left" alt="Pfsense" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pfsense/pfsense-original.svg" />
-          
 <img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
 <img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
-
 <img align="left" alt="Docker" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
 <img align="left" alt="AWS" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" />
-
-<img align="left" alt="XML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xml/xml-original.svg" />
-          
+<img align="left" alt="XML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xml/xml-original.svg" />
 <img align="left" alt="Cisco" width="30px" style="padding-right:10px;" src="/configs/assets/cisco-svgrepo-com.svg" />
+
